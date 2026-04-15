@@ -1,0 +1,15 @@
+# Umgebungsvariablen -- niemals in Git!
+.env
+.env.*
+
+# Python
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Docker
+postgres_data/
