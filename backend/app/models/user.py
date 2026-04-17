@@ -10,3 +10,5 @@ class User(Base):
     password_hash = Column(String, nullable=False)
     role = Column(String, default="student")  # student, instructor, admin
     is_active = Column(Boolean, default=True)
+    
+    
