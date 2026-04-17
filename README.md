@@ -75,7 +75,7 @@ cd backend
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+uvicorn app.main:app --reload --port 8000
 
 
 Access the API
@@ -164,7 +164,7 @@ Database Commands
 
 Connect to PostgreSQL
 
-docker exec -it theken-academy-db-1 psql -U courseuser -d theken\_academy
+docker exec -it theken-academy-db-1 psql -U admin -d theken\_academy
 
 
 Useful PostgreSQL Commands
