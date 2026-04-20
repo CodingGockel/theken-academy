@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.user import User
+from app.core.enums import RoleEnum
 from app.schemas.user import UserRegister, UserLogin, UserResponse, Token
 from app.core.auth import hash_password, verify_password, create_access_token
 
@@ -22,7 +23,7 @@ def register(user_data: UserRegister, db: Session = Depends(get_db)):
         name=user_data.name,
         email=user_data.email,
         password_hash=hash_password(user_data.password),
-        role=user_data.role
+        role=RoleEnum.STUDENT
     )
     db.add(new_user)
     db.commit()

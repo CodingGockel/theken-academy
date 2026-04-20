@@ -1,10 +1,10 @@
 from pydantic import BaseModel, EmailStr
+from app.core.enums import RoleEnum
 
 class UserRegister(BaseModel):
     name: str
     email: EmailStr
     password: str
-    role: str = "student"  # student, instructor, admin
 
 class UserLogin(BaseModel):
     email: EmailStr
@@ -23,7 +23,13 @@ class UserResponse(BaseModel):
 class Token(BaseModel):
     access_token: str
     token_type: str
-    
-class UserSetRole(BaseModel):
-    user: UserLogin
+
+class RoleResponse(BaseModel):
+    id: int
     role: str
+
+    class Config:
+        from_attributes = True
+
+class RoleUpdate(BaseModel):
+    role: RoleEnum
